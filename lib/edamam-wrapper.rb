@@ -23,10 +23,13 @@ class EdamamWrapper
       health_labels = hit["recipe"]["healthLabels"]
       bookmarked = hit["bookmarked"]
 
-      my_recipes << Recipe.new()
+      my_recipes << Recipe.new(id, label, link, ingredients, calories, diet_labels, image, servings, health_labels, bookmarked)
     end
 
+    return my_recipes
   end
+
+
 end
 
 
