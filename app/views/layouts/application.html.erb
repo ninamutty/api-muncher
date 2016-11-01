@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <p><%= link_to "Home", root_path %></p>
+  </header>
 
-<%= yield %>
+  <main>
+  <%= yield %>
+  </main>
+
+  <footer>
+    <p>Attribute API</p>
+  </footer>
 
 </body>
 </html>

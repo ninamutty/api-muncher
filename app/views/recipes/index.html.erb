@@ -1,34 +1,7 @@
-<h1> Recipes </h1>
 
 <h3>What do you want to search for? </h3>
-
-
-<% if flash[:notice] %>
-  <h4 class="flash-notice"><%= flash[:notice] %></h4>
+<%= form_tag(search_path, method: :get) do %>
+  <%= label_tag(:search_term, "Search for:") %>
+  <%= text_field_tag(:search_term) %>
+  <%= submit_tag("Search") %>
 <% end %>
-<section class="row">
-<% sections = ['<section class="small-12 medium-6 large-4  columns">',
-                '<section class="small-12 medium-6 large-4  columns">',
-                '<section class="small-12 medium-12 large-4  columns">'] %>
-
-<% counter = 0 %>
-<% max = @data.length / 3 + 1  %>
-<% @data.each do |data| %>
-  <% if counter % max == 0 %>
-    <%= sections[counter / max].html_safe %>
-    <ul>
-  <% end %>
-  <% counter += 1 %>
-  <li>   <%= link_to data.name, new_message_path(data.name, data.id)    %> </li>
-
-  <% if counter % max == 0 %>
-    </ul>
-    </section>
-  <% end %>
-<% end %>
-  <% if counter % max != 0 %>
-   </ul>
- </section>
-<% end %>
-
-</section>

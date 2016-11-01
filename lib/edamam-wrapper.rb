@@ -5,28 +5,31 @@ class EdamamWrapper
   APP_KEY = ENV["EDAMAM_APP_KEY"]
   BASE_URL = "https://api.edamam.com/"
 
-  def self.find_recipes
-    url = BASE_URL + "search?q=#{term}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&from=#{from}" + "&to=#{to}" + ("&health=#{health}" if health != nil)
+  def self.find_recipes(term, health=nil)
+    url = BASE_URL + "search?q=#{term}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
 
-    response = HTTParty(url)
+    data = HTTParty.get(url)
 
     my_recipes = []
-    response["hits"].each do |recipe|
-      id = hit["id"]  # Does it return this?
-      label = hit["recipe"]["label"]
-      link = hit["recipe"]["url"]
-      ingredients = hit["recipe"][ingredients]
-      calories = hit["recipe"]["calories"]
-      diet_labels = hit["recipe"]["dietLabels"]
-      image = hit["recipe"]["image"]
-      servings = hit["recipe"]["yield"]
-      health_labels = hit["recipe"]["healthLabels"]
-      bookmarked = hit["bookmarked"]
+    if data["hits"]
+      data["hits"].each_with_index do |recipe, index|
+        label = data["hits"][index]["recipe"]["label"]
+        link = data["hits"][index]["recipe"]["url"]
+        ingredients = data["hits"][index]["recipe"][ingredients]
+        calories = data["hits"][index]["recipe"]["calories"].to_f
+        diet_labels = data["hits"][index]["recipe"]["dietLabels"]
+        image = data["hits"][index]["recipe"]["image"]
+        servings = data["hits"][index]["recipe"]["yield"].to_i
+        health_labels = data["hits"][index]["recipe"]["healthLabels"]
+        bookmarked = data["hits"][index]["bookmarked"]
 
-      my_recipes << Recipe.new(id, label, link, ingredients, calories, diet_labels, image, servings, health_labels, bookmarked)
+        my_recipes << Recipe.new(label, link, ingredients, calories, diet_labels, image, servings, health_labels, bookmarked)
+      end
+      return my_recipes
+    else
+      return nil
     end
 
-    return my_recipes
   end
 
 

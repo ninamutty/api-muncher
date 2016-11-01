@@ -1,0 +1,15 @@
+
+<% if flash[:notice] %>
+  <h4 class="flash-notice"><%= flash[:notice] %></h4>
+<% end %>
+
+<% if @data != nil %>
+  <h3>Showing Recipes for '<%= @search_term %>'</h3>
+
+  <% @data.each do |recipe| %>
+    <h4><%= link_to recipe.label, show_path(recipe.find_recipe) %></h4>
+    <%= image_tag recipe.image, alt: "Photo of #{recipe.label}"%>
+  <% end %>
+<% else %>
+  <h4> Please Search for a Type of Recipe! </h4>
+<% end %>

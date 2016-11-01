@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   get 'recipes/index' => 'recipes#index', as: 'index'
 
-  get 'recipes/show' => 'recipes#show', as: 'show'
+  get 'recipes/show/:id' => 'recipes#show', as: 'show'
+
+  get 'recipes/search' => 'recipes#search', as: 'search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
