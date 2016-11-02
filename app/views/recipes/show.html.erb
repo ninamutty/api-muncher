@@ -1,2 +1,24 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h2><%= link_to @recipe.label, @recipe.link %></h2>
+<p> <%="Favorite" if @recipe.bookmarked == true %> </p>
+
+
+
+<%=  image_tag(@recipe.image, alt: "photo of #{@recipe.label}")%>
+
+
+
+<h4>Ingredients: </h4>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><p><%= ingredient["text"] %></p>  </li>
+    <% end %>
+  </ul>
+
+<h4>Serves <%= @recipe.servings.to_i %></h4>
+
+<h4> Health Labels: </h4>
+<ul>
+  <% @recipe.health_labels.each do |health_label| %>
+    <li><%= health_label %></li>
+  <% end %>
+</ul>

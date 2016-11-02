@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'recipes/index' => 'recipes#index', as: 'index'
 
-  get 'recipes/show/:id' => 'recipes#show', as: 'show'
+  get 'recipes/show' => 'recipes#show', as: 'show'
 
   get 'recipes/search' => 'recipes#search', as: 'search'
 

@@ -16,10 +16,21 @@ class RecipesController < ApplicationController
   end
 
   def show
+    # @recipe = Recipe.new(params[:recipe])
+    @recipe = Recipe.new(params[:recipe][:label], params[:recipe][:link], params[:recipe][:ingredients], params[:recipe][:image], params[:recipe][:servings], params[:recipe][:health_labels], params[:recipe][:bookmarked])
+
+#params[:recipe][:uri]
+
+    # @recipe.label = params[:recipe][:label]
+    # @recipe.link = params[:recipe][:link]
+    # @recipe.ingredients = params[:recipe][:ingredients]
+    # @recipe.diet_labels = params[:recipe][:diet_labels]
+    # @recipe.image = params[:recipe][:image]
+    # @recipe.calories = params[:recipe][:calories]
+    # @recipe.uri = params[:recipe][:uri]
+    # @recipe.servings = params[:recipe][:servings]
+    # @recipe.health_labels = params[:recipe][:health_labels]
+    # @recipe.bookmarked = params[:recipe][:bookmarked]
   end
 
-  private
-  # def search_for_term
-  #   params.require(:recipe).permit(:search_term)
-  # end
 end
