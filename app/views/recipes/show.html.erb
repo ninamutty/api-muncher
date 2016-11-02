@@ -1,24 +1,21 @@
-<h2><%= link_to @recipe.label, @recipe.link %></h2>
-<p> <%="Favorite" if @recipe.bookmarked == true %> </p>
+<h2><%= link_to @recipe.first["label"], @recipe.first["url"] %></h2>
+<p> <%="Favorite" if @recipe.first[:bookmarked] == true %> </p>
 
-
-
-<%=  image_tag(@recipe.image, alt: "photo of #{@recipe.label}")%>
+<%=  image_tag(@recipe.first["image"], alt: "photo of #{@recipe.first["label"]}")%>
 
 
 
 <h4>Ingredients: </h4>
   <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <li><p><%= ingredient["text"] %></p>  </li>
+    <% @recipe.first["ingredientLines"].each do |ingredient| %>
+      <li><p><%= ingredient %></p>  </li>
     <% end %>
   </ul>
 
-<h4>Serves <%= @recipe.servings.to_i %></h4>
 
 <h4> Health Labels: </h4>
 <ul>
-  <% @recipe.health_labels.each do |health_label| %>
+  <% @recipe.first["healthLabels"].each do |health_label| %>
     <li><%= health_label %></li>
   <% end %>
 </ul>
