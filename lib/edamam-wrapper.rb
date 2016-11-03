@@ -6,8 +6,11 @@ class EdamamWrapper
   BASE_URL = "https://api.edamam.com/"
   MAX_HITS = 30
 
-  def self.find_recipes(term, to, from, health=nil)
-    url = BASE_URL + "search?q=#{term}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&to=#{to}" + "&from=#{from}"
+  def self.find_recipes(term, from, to, health=nil, app_id=nil, app_key=nil)
+    app_id ||= APP_ID
+    app_key ||= APP_KEY
+
+    url = BASE_URL + "search?q=#{term}" + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&from=#{from}" + "&to=#{to}"
 
     data = HTTParty.get(url)
 

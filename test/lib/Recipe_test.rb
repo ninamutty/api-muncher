@@ -52,21 +52,6 @@ class RecipeTest < ActionController::TestCase
     assert test_me.image == "image"
   end
 
-  test "health_labels Attribute is set correctly" do
-    test_me = Recipe.new("uri", "label", "link", "ingredients", "image", "health_labels", "servings", "bookmarked")
-    assert test_me.health_labels == "health_labels"
-  end
-
-  test "servings Attribute is set correctly" do
-      test_me = Recipe.new("uri", "label", "link", "ingredients", "image", "health_labels", "servings", "bookmarked")
-      assert test_me.servings == "servings"
-  end
-
-  test "bookmarked Attribute is set correctly" do
-    test_me = Recipe.new("uri", "label", "link", "ingredients", "image", "health_labels", "servings", "bookmarked")
-    assert test_me.bookmarked == "bookmarked"
-  end
-
   test "Can find a properly formatted recipe using a uri" do
     VCR.use_cassette("find-recipe") do
       response = Recipe.find("http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2")

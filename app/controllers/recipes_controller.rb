@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
     last_hit = "#{page}9".to_i
 
     unless @search_term == nil
-      @data = EdamamWrapper.find_recipes(@search_term, last_hit, first_hit)
+      @data = EdamamWrapper.find_recipes(@search_term, first_hit, last_hit)
     else
       @data = nil
     end

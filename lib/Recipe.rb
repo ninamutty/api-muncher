@@ -7,7 +7,7 @@ class Recipe
 
 
   def initialize(uri, label, link, ingredients, image, health_labels, servings, bookmarked)
-    if uri == nil || label == nil || link == nil || ingredients == nil || image == nil || health_labels == nil || servings == nil || bookmarked == nil || uri == "" || label == "" || link == "" || ingredients == "" || image == "" || health_labels == "" || servings == "" || bookmarked == ""
+    if uri == nil || label == nil || link == nil || ingredients == nil || image == nil || uri == "" || label == "" || link == "" || ingredients == "" || image == ""
       raise ArgumentError
     end
 
