@@ -1,7 +1,15 @@
 
 <h3>What do you want to search for? </h3>
 <%= form_tag(search_path(page: 0), method: :get) do %>
-  <%= label_tag(:search_term, "Search for:") %>
+  <%= label_tag(:search_term, "Search For:") %>
   <%= text_field_tag(:search_term) %>
+
+  <% @all_health.each do |label| %>
+    <%= label_tag(label) %>
+    <%= check_box_tag "health_labels[]", label %>
+  <% end %>
   <%= submit_tag("Search") %>
 <% end %>
+<!-- @all_ratings.each_with_index do |rating, index|
+  = label_tag "rating_#{rating}", rating
+  = check_box_tag "ratings[]", rating, @selected_ratings.include?(rating), id: "rating_#{rating}" -->

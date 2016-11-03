@@ -10,7 +10,14 @@ class EdamamWrapper
     app_id ||= APP_ID
     app_key ||= APP_KEY
 
-    url = BASE_URL + "search?q=#{term}" + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&from=#{from}" + "&to=#{to}"
+    if health != nil
+      health_string = ""
+      health.each do |label|
+        health_string << "&health=#{label}"
+      end
+    end
+
+    url = BASE_URL + "search?q=#{term}" + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&from=#{from}" + "&to=#{to}" + (health_string if health != nil)
 
     data = HTTParty.get(url)
 
