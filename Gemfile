@@ -43,6 +43,10 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'better_errors'
   gem 'pry'
+
+  # API testing
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -52,9 +56,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  # API testing
-  gem 'minitest-vcr'
-  gem 'webmock'
 end
 
 

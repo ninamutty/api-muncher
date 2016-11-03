@@ -1,19 +1,22 @@
 
 class Recipe
-  attr_reader :id, :uri, :label, :link, :ingredients, :image, :servings, :health_labels, :bookmarked
+  attr_reader :servings, :uri, :label, :link, :ingredients, :image, :servings, :health_labels, :bookmarked
   APP_ID = ENV["EDAMAM_APP_ID"]
   APP_KEY = ENV["EDAMAM_APP_KEY"]
   BASE_URL = "https://api.edamam.com/search?"
 
 
-  def initialize(id, uri, label, link, ingredients, image, health_labels, bookmarked)
-    @id = id
+  def initialize(uri, label, link, ingredients, image, health_labels, servings, bookmarked)
+    if uri == nil || label == nil || link == nil || ingredients == nil || image == nil || health_labels == nil || servings == nil || bookmarked == nil || uri == "" || label == "" || link == "" || ingredients == "" || image == "" || health_labels == "" || servings == "" || bookmarked == ""
+      raise ArgumentError
+    end
+
     @uri = uri
     @label = label
     @link = link
     @ingredients = ingredients
     @image = image
-    # @servings = servings
+    @servings = servings
     @health_labels = health_labels
     @bookmarked = bookmarked
   end

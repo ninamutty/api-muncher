@@ -21,11 +21,12 @@ class EdamamWrapper
         image = data["hits"][index]["recipe"]["image"]
         # servings = data["hits"][index]["recipe"]["yield"]
         health_labels = data["hits"][index]["recipe"]["healthLabels"]
+        servings = data["hits"][index]["recipe"]["servings"]
         bookmarked = data["hits"][index]["bookmarked"]
-        id = (index+1)
+
         # raise
 
-        my_recipes << Recipe.new(id, uri, label, link, ingredients, image, health_labels, bookmarked)
+        my_recipes << Recipe.new(uri, label, link, ingredients, image, health_labels, servings, bookmarked)
       end
       return my_recipes
     else

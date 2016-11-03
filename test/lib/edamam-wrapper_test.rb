@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'edamam_wrapper'
+require 'edamam-wrapper'
 require 'Recipe'
 
 class EdamamWrapperTest < ActionController::TestCase
