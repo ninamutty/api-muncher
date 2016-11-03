@@ -1,4 +1,6 @@
 require 'httparty'
+# require 'json'
+# require 'open-uri'
 
 class EdamamWrapper
   APP_ID = ENV["EDAMAM_APP_ID"]
@@ -35,7 +37,10 @@ class EdamamWrapper
     else
       return nil
     end
-
+    #
+    # if data.first.class != Recipe
+    #   data = Nokogiri::XML(open("data"))
+    # end
   end
 
 

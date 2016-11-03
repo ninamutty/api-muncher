@@ -212,8 +212,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  json
   minitest-reporters
   minitest-vcr
+  nokogiri
   pry
   rails (= 4.2.7)
   sass-rails (~> 5.0)

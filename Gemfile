@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'nokogiri'
+gem 'json'
 gem 'foundation-rails'
 gem 'jquery-turbolinks'
 gem "awesome_print"
