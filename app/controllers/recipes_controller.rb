@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
     page = params[:page]
 
     first_hit = "#{page}0".to_i
-    last_hit = "#{page}9".to_i
+    last_hit = "#{page.to_i + 1}0".to_i
 
     unless @search_term == nil
       if @filters == nil
@@ -26,6 +26,7 @@ class RecipesController < ApplicationController
     else
       @data = nil
     end
+
   end
 
   def show

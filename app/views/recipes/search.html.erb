@@ -5,11 +5,13 @@
 <% end %>
 
 <% if @data != nil %>
-  <h3>Showing Recipes for '<%= @search_term %>'</h3>
+  <h3 class="search-term-styling">SHOWING RESULTS FOR '<%= @search_term.upcase %>'</h3>
   <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
     <% @data.each do |recipe| %>
       <article class="columns small-6 medium-4 large-3 recipe-section <%= 'end' if recipe == @data.last %>" data-equalizer-watch>
-        <h4><%= link_to recipe.label, show_path(recipe.uri)%></h4>
+        <div class="recipe-title-background">
+          <h4 class="recipe-title"><span><%= link_to recipe.label, show_path(recipe.uri)%></span></h4>
+        </div>
         <%= link_to(image_tag(recipe.image, alt: "Photo of #{recipe.label}"),show_path(recipe.uri)) %>
       </article>
     <% end %>
@@ -21,7 +23,7 @@
 
 <ul class="pagination page-numbers" role="navigation" aria-label="Pagination">
   <% 10.times do |index| %>
-    <li> <%= link_to "#{index+1}", search_path(page: (index+1), search_term: @search_term)%> </li>
+    <li> <%= link_to "#{index+1}", search_path(page: (index), search_term: @search_term)%> </li>
   <% end %>
 </ul>
 </main>
