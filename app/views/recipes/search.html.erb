@@ -1,25 +1,27 @@
 
-
+<main>
 <% if flash[:notice] %>
   <h4 class="flash-notice"><%= flash[:notice] %></h4>
 <% end %>
 
 <% if @data != nil %>
   <h3>Showing Recipes for '<%= @search_term %>'</h3>
-
-  <% @data.each do |recipe| %>
-    <h4><%= link_to recipe.label, show_path(recipe.uri)%></h4>
-
-
-    <%= image_tag recipe.image, alt: "Photo of #{recipe.label}"%>
-  <% end %>
+  <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+    <% @data.each do |recipe| %>
+      <article class="columns small-6 medium-4 large-3 recipe-section <%= 'end' if recipe == @data.last %>" data-equalizer-watch>
+        <h4><%= link_to recipe.label, show_path(recipe.uri)%></h4>
+        <%= link_to(image_tag(recipe.image, alt: "Photo of #{recipe.label}"),show_path(recipe.uri)) %>
+      </article>
+    <% end %>
+  </div>
 <% else %>
   <h4> Please Search for a Type of Recipe! </h4>
 <% end %>
 
 
-<ul class="pagination" role="navigation" aria-label="Pagination">
+<ul class="pagination page-numbers" role="navigation" aria-label="Pagination">
   <% 10.times do |index| %>
     <li> <%= link_to "#{index+1}", search_path(page: (index+1), search_term: @search_term)%> </li>
   <% end %>
 </ul>
+</main>

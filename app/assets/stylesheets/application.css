@@ -14,3 +14,132 @@
  *= require_self
 require foundation_and_overrides
  */
+
+header {
+  /*margin-top: 2%;*/
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+header h1.main-title, header nav {
+  display: inline-block;
+}
+
+header h1.main-title {
+  font-size: 3.5rem;
+  color: black;
+  font-family: 'Kaushan Script', Helvetica, sans-serif;
+  margin-left: 3%;
+  letter-spacing: 4px;
+  padding-bottom: 0.5%;
+}
+
+
+header nav {
+  font-size: 1.5rem;
+  color: black;
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+  margin-left: 60%;
+  padding-top: 2%;
+}
+
+header nav ul li a {
+  color: black;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+header nav ul li a:hover { font-weight: 600; color: black;}
+
+article.this-i-want {
+  /*background-image: url('pineapples.jpeg');*/
+  background: url('salmon.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin: 0;
+}
+
+main {
+  height: 100%;
+  margin-bottom: 40%;
+}
+
+.search-section {
+  text-align: center;
+  margin: 10% auto 0 auto;
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 60%;
+}
+.search-button {
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+article.search-section h3.help-with {
+  font-family: 'Kaushan Script', Helvetica, sans-serif;
+  letter-spacing: 3px;
+  padding-bottom: 2%;
+}
+
+.recipe-section {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 1% 0;
+  padding: 0 1%;
+  text-align: center;
+}
+
+.recipe-section a {
+  color: black;
+  letter-spacing: 1px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.5rem;
+}
+
+.recipe-section a:hover {
+text-decoration: underline;
+}
+
+.page-numbers {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  width: 30%;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.page-numbers li {
+  font-size: 1.5rem;
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+}
+
+.page-numbers li:hover {
+  text-decoration: underline;
+  background-color: lightgray;
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+}
+
+footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: block;
+  width: 100%;
+  margin-top: 5vh;
+  color: black;
+  vertical-align: middle;
+  font-weight: 200;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  clear: both;
+}
+
+footer p {
+  display: inline-block;
+  padding-top: 1%;
+  letter-spacing: 1px;
+}
+
+footer p:first-of-type {margin-left: 2%; margin-right: 55%;}

@@ -5,15 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Open+Sans+Condensed:300" rel="stylesheet">
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
-  <body>
+<article class="<%="this-i-want" if @background_image == true %>">
+<header>
+  <h1 class="main-title"> Yummily </h1>
+  <nav>
+    <ul class="menu">
+      <li><%= link_to "Home", root_path %></li>
+    </ul>
+  </nav>
+</header>
+  <main>
 
     <%= yield %>
 
-  </body>
+  </main>
+
+  <footer>
+    <p class="footer-child copywrite">&copy; - Created by <%= link_to "Nina Mutty", "https://ninamutty.github.io/index.html" %> - 2016 </p>
+    <p class="footer-child edamam-logo"> Powered By: <%= link_to(image_tag('edamam-logo.png', alt: 'Edamam Logo'), "https://www.edamam.com/") %></p>
+  </footer>
 </html>
+</article>

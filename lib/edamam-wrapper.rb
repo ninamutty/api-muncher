@@ -10,14 +10,18 @@ class EdamamWrapper
     app_id ||= APP_ID
     app_key ||= APP_KEY
 
-    if health != nil
-      health_string = ""
-      health.each do |label|
-        health_string << "&health=#{label}"
-      end
+    if health == nil
+      url = BASE_URL + "search?q=#{term}" + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&from=#{from}" + "&to=#{to}"
+    else
+      # array = []
+      # health.each do |label|
+      #   array << label
+      # end
+      health_string = "&health=#{health}"
+      url = BASE_URL + "search?q=#{term}" + health_string + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&from=#{from}" + "&to=#{to}"
+      #  raise
     end
 
-    url = BASE_URL + "search?q=#{term}" + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&from=#{from}" + "&to=#{to}" + (health_string if health != nil)
 
     data = HTTParty.get(url)
 

@@ -3,12 +3,14 @@ require "#{Rails.root}/lib/Recipe.rb"
 
 class RecipesController < ApplicationController
   def index
-    @all_health = ["alcohol-free", "celery-free", "crustacean-free", "dairy-free", "egg-free", "fish-free", "gluten-free", "kidney-friendly", "kosher", "low-potassium", "lupine-free", "mustard-free", "low-fat-abs", "No-oil-added", "low-sugar", "paleo", "peanut-free", "pecatarian", "pork-free", "red-meat-free", "sesame-free", "shellfish-free", "soy-free", "sugar-conscious", "tree-nut-free", "vegan", "vegetarian", "wheat-free"]
+    @background_image = true
+    @all_health = ["vegan", "vegetarian", "paleo", "dairy-free", "gluten-free", "wheat-free", "fat-free", "low-sugar", "egg-free", "peanut-free", "tree-nut-free", "soy-free", "fish-free", "shellfish-free"]
   end
 
   def search(page=0)
+    @background_image = false
     @search_term = params[:search_term]
-    @filters = params["health_labels"]
+    @filters = params["healthLabels"]
 
     page = params[:page]
 
@@ -16,14 +18,18 @@ class RecipesController < ApplicationController
     last_hit = "#{page}9".to_i
 
     unless @search_term == nil
-      @data = EdamamWrapper.find_recipes(@search_term, first_hit, last_hit, @filters)
+      if @filters == nil
+        @data = EdamamWrapper.find_recipes(@search_term, first_hit, last_hit)
+      else
+        @data = EdamamWrapper.find_recipes(@search_term, first_hit, last_hit, @filters)
+      end
     else
       @data = nil
     end
-
   end
 
   def show
+    @background_image = false
     @params = params[:uri] + "." + params[:format].gsub(/#/,'%23')  ### This may look unnecessary but trust me, it was
     @recipe = Recipe.find(@params)
 
