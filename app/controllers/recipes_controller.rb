@@ -33,19 +33,6 @@ class RecipesController < ApplicationController
     @background_image = false
     @params = params[:uri] + "." + params[:format].gsub(/#/,'%23')  ### This may look unnecessary but trust me, it was
     @recipe = Recipe.find(@params)
-
-     #@recipe = Recipe.new(params[:recipe][:id], params[:recipe][:uri], params[:recipe][:label], params[:recipe][:link], params[:recipe][:ingredients], params[:recipe][:image], params[:recipe][:health_labels], params[:recipe][:bookmarked])
-
-    # @recipe.label = params[:recipe][:label]
-    # @recipe.link = params[:recipe][:link]
-    # @recipe.ingredients = params[:recipe][:ingredients]
-    # @recipe.diet_labels = params[:recipe][:diet_labels]
-    # @recipe.image = params[:recipe][:image]
-    # @recipe.calories = params[:recipe][:calories]
-    # @recipe.uri = params[:recipe][:uri]
-    # @recipe.servings = params[:recipe][:servings]
-    # @recipe.health_labels = params[:recipe][:health_labels]
-    # @recipe.bookmarked = params[:recipe][:bookmarked]
   end
 
 end

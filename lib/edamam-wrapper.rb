@@ -44,7 +44,7 @@ class EdamamWrapper
       end
       return my_recipes
     else
-      return nil
+      return data
     end
 
   end

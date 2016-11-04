@@ -22,9 +22,11 @@ class Recipe
   end
 
   def self.find(uri)
-    url = BASE_URL + "&r=#{uri}"
+    url = BASE_URL + "r=#{uri}"
+
 
     @recipe = HTTParty.get(url)
+  
   end
 
 end

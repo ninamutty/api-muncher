@@ -6,7 +6,6 @@ gem "awesome_print"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,6 +35,11 @@ gem 'httparty'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :production do
+    gem 'pg'
+    gem 'rails_12factor'
+end
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +47,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'better_errors'
   gem 'pry'
+  gem 'sqlite3'
 
   # API testing
   gem 'minitest-vcr'
