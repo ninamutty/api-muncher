@@ -62,11 +62,11 @@ class RecipeTest < ActionController::TestCase
   end
 
   ### How do I test if the response failed???
-  # test "Response fails when recipe uri doesn't exist" do
-  #   VCR.use_cassette("no-recipe") do
-  #     response = Recipe.find("bad")
-  #     assert response == [
-  #   end
-  # end
+  test "Response fails when recipe uri doesn't exist" do
+    VCR.use_cassette("no-recipe") do
+      response = Recipe.find("bad")
+      assert response == [
+    end
+  end
 
 end
