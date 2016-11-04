@@ -23,15 +23,14 @@ class EdamamWrapperTest < ActionController::TestCase
   test "retrieves nil when the app_id is broken" do
     VCR.use_cassette("bad_app_id") do
       recipes = EdamamWrapper.find_recipes("chicken", "2", "12", nil,'bad_app_id')
-      assert "count" == 0
+      assert response.parsed_response.include? ("Error 401")
     end
   end
 
   test "retrieves nil when the app_key is broken" do
     VCR.use_cassette("bad_app_key") do
       recipes = EdamamWrapper.find_recipes("chicken", "2", "12", nil, nil,'bad_app_key')
-      puts ["count"]
-      assert ["count"] == 0
+      assert response.parsed_response.include? ("Error 401")
     end
   end
 
