@@ -1,5 +1,20 @@
 # Recipe API Consumer
 
+### Reflection:
+What do you understand better after doing this project?
+
+* I understand API's (both what they are and how they work) much better. I also understand how to make a site responsive using foundation much better and what to test for (although I still want to add some more assertions to my test). In addition, while I didn't include it in the final product (because the API didn't allow filtering based all health categories - I believe that was a premium package thing) I added in the functionality which helped me get experience with searching and filtering logic. 
+
+What do you want more practice with?
+
+* I want more practice with testing (I feel like I can do it but it's not as thourough or as fast a process as I'd like it to be). I also woud love to have a better understanding of how the structure of a rails project is set up. I have a good grasp of the MVC framework and the helpers that go along with them, but don't have a complete understanding of how the lib folder fits in and what to put in there.
+
+What is someting you saw done differently?
+
+* Using URI.escape to get the right format for a uri (I used gsub instead which seems more makeshift).
+
+
+
 ## Learning Goals:
 - Configure an API for consumption
 - Create authenticated API requests using HTTParty
@@ -66,3 +81,4 @@ Once you've explored the API docs, this project:
 	-  High Protien
 	-  Etc
  
+
